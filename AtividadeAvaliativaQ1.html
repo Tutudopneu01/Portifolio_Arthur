@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <form>
+
+        <div>
+            <label for="km">Distância da casa de Joana até a casa da sua mãe, em km:</label>
+            <input type="number" id="km" name="km">
+        </div>
+
+          <div>
+            <label for="comsumo">O comsumo de seu carro, em km/litro:</label>
+            <input type="number" id="com" name="com">
+        </div>
+
+        <div>
+            <label for="preco">Preço da gasolina no posto onde Joana abatece</label>
+            <input type="number" id="pre" name="pre">
+        </div>
+
+        <div>
+          <button onclick="calcularPreco()">Somar</button>
+        </div>
+
+    </form>
+
+    <p>Valor</p>
+    <p id="resu"></p>
+
+    <script>
+        function calcular(){
+            var km = parseFloat(document.getElementById('km').value);
+            var com = parseFloat(document.getElementById('com').value);
+            var pre = parseFloat(document.getElementById('pre').value);
+
+                google.script. run. withSuccessHandler(exibirPreco).calcularPreco(km, com, pre);
+        }
+
+        function exibirPreco(preco){
+            var resu = document.getElementById('resu');
+            resultadopago.innerHTML = preco;
+        }
+
+    </script>
+  </body>
+</html>
