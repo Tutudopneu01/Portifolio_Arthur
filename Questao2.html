@@ -1,0 +1,49 @@
+-----------------------CODIGO GS------------------------------------------
+
+function doGet() {
+ return HtmlService.createHtmlOutputFromFile('GastoGasolina').evaluate
+}
+
+function getUrl(){
+  var url = ScriptApp.getService().getUrl();
+  return url;
+}
+
+function doPost (e) {
+    Logger.log(e.parameter.distancia,consumo,preso)
+     var distancia = e.parameter.distancia;
+     var consumo = e.parameter.consumo;
+     var preco = e.parameter.preco;
+  
+}
+
+
+
+-----------------------	CODIGO HTML------------------------------------------
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+
+    <? var url = getUrl() ?>
+
+    <form action="<?= url ?>" method="POST" >
+    
+    <label for="distancia"> Distancia da casa: </label>
+    <input type="number" id="distancia" name="distancia">
+    
+    <label for="consumo"> Consumo do Veículo: </label>
+    <input type="number" id="consumo"name="consumo">
+
+    <label for="preço"> Preço da Gasolina: </label>
+    <input type="number" id="preço"namer="preço">
+
+     <button type="submit">Calcular os Gastos </button>
+    </form>
+   </body>
+  </html>
